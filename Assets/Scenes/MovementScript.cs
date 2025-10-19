@@ -19,7 +19,7 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (bjarne.bjarneIsAlive)
+        while (bjarne.BjarneIsAlive)
         {
             horizontal = Input.GetAxisRaw("Horizontal");
             if (Input.GetKeyDown(KeyCode.Space) && grounded)

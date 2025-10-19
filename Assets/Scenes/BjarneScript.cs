@@ -3,8 +3,11 @@ using UnityEngine;
 public class BjarneScript : MonoBehaviour
 {
     public LogicScript logic;
-    public bool bjarneIsAlive;
+    private bool bjarneIsAlive = true;
     public CameraFollowScript cameraFollowScript;
+
+    public bool BjarneIsAlive { get => bjarneIsAlive; set => bjarneIsAlive = value; }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
