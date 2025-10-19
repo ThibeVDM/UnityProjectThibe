@@ -8,7 +8,7 @@ public class MovementScript : MonoBehaviour
     private float jumpingPower = 5f;
     private bool isFacingRight = true;
     bool grounded;
-    public BjarneScript bjarne;
+    
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -19,8 +19,8 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (bjarne.BjarneIsAlive)
-        {
+        
+        
             horizontal = Input.GetAxisRaw("Horizontal");
             if (Input.GetKeyDown(KeyCode.Space) && grounded)
             {
@@ -29,7 +29,7 @@ public class MovementScript : MonoBehaviour
 
 
             Flip();
-        }
+        
         
     }
     private void FixedUpdate()

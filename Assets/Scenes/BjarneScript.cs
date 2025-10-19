@@ -3,7 +3,7 @@ using UnityEngine;
 public class BjarneScript : MonoBehaviour
 {
     public LogicScript logic;
-    private bool bjarneIsAlive = true;
+    private bool bjarneIsAlive;
     public CameraFollowScript cameraFollowScript;
 
     public bool BjarneIsAlive { get => bjarneIsAlive; set => bjarneIsAlive = value; }
@@ -12,6 +12,7 @@ public class BjarneScript : MonoBehaviour
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        
     }
 
     // Update is called once per frame
