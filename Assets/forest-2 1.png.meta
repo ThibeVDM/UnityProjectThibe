@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c193761e3e7f67b49a2822a09c43d5a7
+guid: c04e9e23d5f33ba4398e1df4108660d6
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -164,10 +164,10 @@ TextureImporter:
       name: forest-2_0
       rect:
         serializedVersion: 2
-        x: 512
-        y: 456
-        width: 259
-        height: 145
+        x: 288
+        y: 67
+        width: 129
+        height: 141
       alignment: 9
       pivot: {x: 1.2138746, y: -0.341074}
       border: {x: 3, y: 5, z: 4, w: 0}

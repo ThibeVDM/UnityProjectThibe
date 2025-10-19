@@ -5,8 +5,10 @@ public class MovementScript : MonoBehaviour
 {
     private float horizontal;
     private float speed = 8f;
-    private float jumpingPower = 16f;
+    private float jumpingPower = 5f;
     private bool isFacingRight = true;
+    bool grounded;
+    public BjarneScript bjarne;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -17,23 +19,43 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        while (bjarne.bjarneIsAlive)
         {
-            rb.linearVelocity = Vector2.up * jumpingPower;
+            horizontal = Input.GetAxisRaw("Horizontal");
+            if (Input.GetKeyDown(KeyCode.Space) && grounded)
+            {
+                rb.linearVelocity = Vector2.up * jumpingPower;
+            }
+
+
+            Flip();
         }
         
-
-        Flip();
     }
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocityY);
     }
 
-    private bool isGrounded()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            grounded = false;
+        }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if (groundCheck == null) return;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
     }
 
     private void Flip()
