@@ -9,6 +9,7 @@ public class MovementScript : MonoBehaviour
     private bool isFacingRight = true;
     bool grounded;
     
+    
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -30,7 +31,10 @@ public class MovementScript : MonoBehaviour
 
             Flip();
         
-        
+        if(transform.position.y < -7)
+        {
+            speed = 0;
+        }
     }
     private void FixedUpdate()
     {
