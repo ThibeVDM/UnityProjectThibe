@@ -18,12 +18,7 @@ public class BjarneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < -7 )
-        {
-            logic.gameOver();
-            bjarneIsAlive = false;
-            
-        }
+        
     }
 
     public void death()
@@ -33,6 +28,15 @@ public class BjarneScript : MonoBehaviour
         bjarneIsAlive = false;
     }
 
-    
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Spike")){
+            death();
+        }
+        if (other.gameObject.CompareTag("Fireball"))
+        {
+            death();
+        }
+    }
 
 }

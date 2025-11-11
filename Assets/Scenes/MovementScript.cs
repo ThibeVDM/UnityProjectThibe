@@ -4,8 +4,8 @@ using UnityEngine;
 public class MovementScript : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 5f;
+    public float speed = 6f;
+    public float jumpingPower = 5f;
     private bool isFacingRight = true;
     bool grounded;
     
@@ -31,10 +31,8 @@ public class MovementScript : MonoBehaviour
 
             Flip();
         
-        if(transform.position.y < -7)
-        {
-            speed = 0;
-        }
+        
+        
     }
     private void FixedUpdate()
     {
@@ -46,6 +44,16 @@ public class MovementScript : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             grounded = true;
+        }
+        if (other.gameObject.CompareTag("Spike"))
+        {
+            speed = 0;
+            jumpingPower = 0;
+        }
+        if (other.gameObject.CompareTag("Fireball"))
+        {
+            speed = 0;
+            jumpingPower = 0;
         }
     }
     private void OnCollisionExit2D(Collision2D other)
@@ -72,4 +80,5 @@ public class MovementScript : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+    
 }

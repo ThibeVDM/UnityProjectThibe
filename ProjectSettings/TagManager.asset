@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Logic
   - Ground
+  - Spike
+  - Fireball
+  - Bjarne
+  - Witch
   layers:
   - Default
   - TransparentFX

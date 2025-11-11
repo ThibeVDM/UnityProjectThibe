@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class LogicScript : MonoBehaviour
 {
     public GameObject gameOverScreen;
+    public bool witchIsAlive = true;
+    
     public void restartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -17,4 +19,5 @@ public class LogicScript : MonoBehaviour
         gameOverScreen.SetActive(true);
 
     }
+    
 }
