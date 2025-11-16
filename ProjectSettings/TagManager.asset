@@ -10,6 +10,8 @@ TagManager:
   - Fireball
   - Bjarne
   - Witch
+  - Goomba
+  - GoomPlatform
   layers:
   - Default
   - TransparentFX

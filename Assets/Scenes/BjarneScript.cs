@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BjarneScript : MonoBehaviour
 {
     public LogicScript logic;
     private bool bjarneIsAlive;
     public CameraFollowScript cameraFollowScript;
+   
+    
+
+
 
     public bool BjarneIsAlive { get => bjarneIsAlive; set => bjarneIsAlive = value; }
 
@@ -20,6 +25,9 @@ public class BjarneScript : MonoBehaviour
     {
         
     }
+
+    
+    
 
     public void death()
     {
@@ -37,6 +45,17 @@ public class BjarneScript : MonoBehaviour
         {
             death();
         }
+        if (other.gameObject.CompareTag("Witch"))
+        {
+            Destroy(other.gameObject);
+            logic.witchIsAlive = false;
+        }
+        if (other.gameObject.CompareTag("Goomba"))
+        {
+            death();
+        }
+
+
     }
 
 }

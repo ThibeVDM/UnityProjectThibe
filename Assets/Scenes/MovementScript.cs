@@ -33,6 +33,7 @@ public class MovementScript : MonoBehaviour
         
         
         
+        
     }
     private void FixedUpdate()
     {
@@ -45,12 +46,21 @@ public class MovementScript : MonoBehaviour
         {
             grounded = true;
         }
+        if (other.gameObject.CompareTag("GoomPlatform"))
+        {
+            grounded = true;
+        }
         if (other.gameObject.CompareTag("Spike"))
         {
             speed = 0;
             jumpingPower = 0;
         }
         if (other.gameObject.CompareTag("Fireball"))
+        {
+            speed = 0;
+            jumpingPower = 0;
+        }
+        if (other.gameObject.CompareTag("Goomba"))
         {
             speed = 0;
             jumpingPower = 0;
