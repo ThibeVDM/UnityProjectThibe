@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class goombaSpawner : MonoBehaviour
+public class spawnFireball2 : MonoBehaviour
 {
-    public GameObject goomba;
+    public GameObject fireball;
     public float spawnRate = 2;
     private float timer = 0;
     public LogicScript logic;
@@ -10,7 +10,6 @@ public class goombaSpawner : MonoBehaviour
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-
     }
 
     // Update is called once per frame
@@ -22,12 +21,10 @@ public class goombaSpawner : MonoBehaviour
         }
         else
         {
-            Instantiate(goomba, transform.position, transform.rotation);
+            Instantiate(fireball, transform.position, transform.rotation);
             timer = 0;
         }
-        if (logic.portalIsalive == false)
-        {
-            Destroy(gameObject);
-        }
+        
+
     }
 }

@@ -8,14 +8,20 @@ public class MovementScript : MonoBehaviour
     public float jumpingPower = 5f;
     private bool isFacingRight = true;
     bool grounded;
-    
-    
+    public LogicScript logic;
+
+
+
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
-    
+    void Start()
+    {
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -30,9 +36,12 @@ public class MovementScript : MonoBehaviour
 
 
             Flip();
-        
-        
-        
+
+
+        if (logic.bjarneIsAlive == false) {
+            speed = 0;
+            jumpingPower = 0;
+        }
         
     }
     private void FixedUpdate()
@@ -50,21 +59,7 @@ public class MovementScript : MonoBehaviour
         {
             grounded = true;
         }
-        if (other.gameObject.CompareTag("Spike"))
-        {
-            speed = 0;
-            jumpingPower = 0;
-        }
-        if (other.gameObject.CompareTag("Fireball"))
-        {
-            speed = 0;
-            jumpingPower = 0;
-        }
-        if (other.gameObject.CompareTag("Goomba"))
-        {
-            speed = 0;
-            jumpingPower = 0;
-        }
+        
     }
     private void OnCollisionExit2D(Collision2D other)
     {

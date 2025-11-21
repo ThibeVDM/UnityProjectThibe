@@ -12,6 +12,12 @@ TagManager:
   - Witch
   - Goomba
   - GoomPlatform
+  - GoombaKill
+  - Checkpoint1
+  - Fireball1
+  - Checkpoint2
+  - fireCoin
+  - apple
   layers:
   - Default
   - TransparentFX
