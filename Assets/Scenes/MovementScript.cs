@@ -9,6 +9,7 @@ public class MovementScript : MonoBehaviour
     private bool isFacingRight = true;
     bool grounded;
     public LogicScript logic;
+    private bool doubleJump;
 
 
 
@@ -28,11 +29,15 @@ public class MovementScript : MonoBehaviour
     {
         
         
+        
             horizontal = Input.GetAxisRaw("Horizontal");
-            if (Input.GetKeyDown(KeyCode.Space) && grounded)
+           if (Input.GetKeyDown(KeyCode.Space) && grounded)
             {
                 rb.linearVelocity = Vector2.up * jumpingPower;
-            }
+           }
+        
+
+            
 
 
             Flip();

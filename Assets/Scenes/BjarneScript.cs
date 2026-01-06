@@ -113,6 +113,11 @@ public class BjarneScript : MonoBehaviour
         {
             death();
         }
+        if (other.gameObject.CompareTag("doubleJump"))
+        {
+            Destroy(other.gameObject);
+            logic.doubleJumpTaken = true;
+        }
 
 
 
@@ -135,6 +140,7 @@ public class BjarneScript : MonoBehaviour
         if (other.gameObject.CompareTag("apple"))
         {
             Destroy(other.gameObject);
+            
         }
     }
 

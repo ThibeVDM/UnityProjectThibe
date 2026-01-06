@@ -9,7 +9,7 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
     public bool witchIsAlive = true;
     public bool portalIsalive = true;
-    
+    public bool doubleJumpTaken = false;
     public bool bjarneIsAlive = true;
 
 
