@@ -18,6 +18,12 @@ TagManager:
   - Checkpoint2
   - fireCoin
   - apple
+  - doubleJump
+  - Checkpoint3
+  - LowGravity
+  - End
+  - EndGround
+  - LavaWalker
   layers:
   - Default
   - TransparentFX

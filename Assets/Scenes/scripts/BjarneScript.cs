@@ -2,20 +2,26 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
+using UnityEngine.TextCore.Text;
 
 public class BjarneScript : MonoBehaviour
 {
     public LogicScript logic;
     public CameraFollowScript cameraFollowScript;
+    public MovementScript movementScript;
     private float goombaCount = 0;
+    private float appleCount = 0;
     public GameObject respawnPoint;
     public GameObject respawnPoint1;
     public GameObject respawnPoint2;
+    public GameObject respawnPoint3;
     private float respawnPointNumber = 0;
     public float lifes = 3;
     private float score = 0;
     public Text scoreText;
     public Text lifesText;
+    public Rigidbody2D rb;
+   
 
 
 
@@ -27,7 +33,7 @@ public class BjarneScript : MonoBehaviour
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -40,6 +46,11 @@ public class BjarneScript : MonoBehaviour
         if (lifes == 0)
         {
             gameOver();
+        }
+        if (appleCount == 3)
+        {
+            logic.flameIsAlive = false;
+            movementScript.jumpingPower = 5;
         }
 
     }
@@ -60,9 +71,13 @@ public class BjarneScript : MonoBehaviour
         {
             transform.position = respawnPoint2.transform.position;
         }
+        else if (respawnPointNumber == 3)
+        {
+            transform.position = respawnPoint3.transform.position;
+        }
         lifes = lifes - 1;
         lifesText.text = lifes.ToString();
-
+        movementScript.jumpingPower = 5;
     }
 
     public void gameOver()
@@ -90,8 +105,10 @@ public class BjarneScript : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Witch"))
         {
+            addScore();
             Destroy(other.gameObject);
             logic.witchIsAlive = false;
+                    
         }
         if (other.gameObject.CompareTag("Goomba"))
         {
@@ -108,6 +125,17 @@ public class BjarneScript : MonoBehaviour
             respawnPointNumber = respawnPointNumber + 1;
             Destroy(other.gameObject);
             addScore();
+
+        }
+        if (other.gameObject.CompareTag("Checkpoint3"))
+        {
+            respawnPointNumber = respawnPointNumber + 1;
+            Destroy(other.gameObject);
+            addScore();
+            rb.gravityScale = 0.3f;
+            logic.lowGravity = true;
+            
+            
         }
         if (other.gameObject.CompareTag("apple"))
         {
@@ -116,7 +144,23 @@ public class BjarneScript : MonoBehaviour
         if (other.gameObject.CompareTag("doubleJump"))
         {
             Destroy(other.gameObject);
-            logic.doubleJumpTaken = true;
+            movementScript.jumpingPower = 10;
+        }
+        if (other.gameObject.CompareTag("End"))
+        {
+            logic.victory();
+
+        }
+
+
+        if (other.gameObject.CompareTag("EndGround"))
+        {
+           logic.lowGravity = false; 
+        }
+        if (other.gameObject.CompareTag("LavaWalker"))
+        {
+            logic.powerUp3();
+            Destroy(other.gameObject);
         }
 
 
@@ -136,11 +180,14 @@ public class BjarneScript : MonoBehaviour
         {
             Destroy(other.gameObject);
             goombaCount = goombaCount + 1;
+            addScore();
         }
         if (other.gameObject.CompareTag("apple"))
         {
             Destroy(other.gameObject);
-            
+            appleCount = appleCount + 1;
+            addScore();
+
         }
     }
 
