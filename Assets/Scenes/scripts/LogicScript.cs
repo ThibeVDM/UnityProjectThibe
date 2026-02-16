@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 
 
@@ -9,6 +10,8 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
     public GameObject victoryScreen;
     public GameObject lavaWalker;
+    public GameObject goombaInstruction;
+    public GameObject superjumpText;
     public bool witchIsAlive = true;
     public bool portalIsalive = true;
     public bool doubleJumpTaken = false;
@@ -19,7 +22,9 @@ public class LogicScript : MonoBehaviour
 
     public void restartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("CLICK");
     }
 
     public void gameOver()
@@ -32,6 +37,27 @@ public class LogicScript : MonoBehaviour
         victoryScreen.SetActive(true);
 
     }
+    public void witchDead()
+    {
+        goombaInstruction.SetActive(true);
+
+    }
+    public void goombaDead()
+    {
+        goombaInstruction.SetActive(false);
+
+    }
+    public void superjumpActive()
+    {
+        superjumpText.SetActive(true);
+
+    }
+    public void superjumDeactive()
+    {
+        superjumpText.SetActive(false);
+
+    }
+
     public void addScore(int scoreToAdd)
     {
         

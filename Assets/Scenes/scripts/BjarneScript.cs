@@ -21,6 +21,7 @@ public class BjarneScript : MonoBehaviour
     public Text scoreText;
     public Text lifesText;
     public Rigidbody2D rb;
+    private int i = 0;
    
 
 
@@ -40,17 +41,23 @@ public class BjarneScript : MonoBehaviour
     void Update()
     {
         if (goombaCount == 5)
-        {
+        { 
             logic.portalIsalive = false;
+            logic.goombaDead();
         }
         if (lifes == 0)
         {
-            gameOver();
+            if (i == 0) {
+                gameOver();
+                i++;
+            }
+            
         }
         if (appleCount == 3)
         {
             logic.flameIsAlive = false;
             movementScript.jumpingPower = 5;
+            logic.superjumDeactive();
         }
 
     }
@@ -108,6 +115,7 @@ public class BjarneScript : MonoBehaviour
             addScore();
             Destroy(other.gameObject);
             logic.witchIsAlive = false;
+            
                     
         }
         if (other.gameObject.CompareTag("Goomba"))
@@ -119,6 +127,7 @@ public class BjarneScript : MonoBehaviour
             respawnPointNumber = respawnPointNumber + 1;
             Destroy(other.gameObject);
             addScore();
+            logic.witchDead();
         }
         if (other.gameObject.CompareTag("Checkpoint2"))
         {
@@ -145,6 +154,7 @@ public class BjarneScript : MonoBehaviour
         {
             Destroy(other.gameObject);
             movementScript.jumpingPower = 10;
+            logic.superjumpActive();
         }
         if (other.gameObject.CompareTag("End"))
         {
