@@ -15,6 +15,7 @@ public class BjarneScript : MonoBehaviour
     public GameObject respawnPoint1;
     public GameObject respawnPoint2;
     public GameObject respawnPoint3;
+    public GameObject portalExit;
     private float respawnPointNumber = 0;
     public float lifes = 3;
     private float score = 0;
@@ -172,6 +173,11 @@ public class BjarneScript : MonoBehaviour
             logic.powerUp3();
             Destroy(other.gameObject);
         }
+        if (other.gameObject.CompareTag("EnterPortal"))
+        {
+            transform.position = portalExit.transform.position;
+        }
+
 
 
 

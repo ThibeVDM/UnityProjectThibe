@@ -30,4 +30,7 @@ public class goombaSpawner : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+
+    
 }

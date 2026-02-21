@@ -24,6 +24,7 @@ TagManager:
   - End
   - EndGround
   - LavaWalker
+  - EnterPortal
   layers:
   - Default
   - TransparentFX

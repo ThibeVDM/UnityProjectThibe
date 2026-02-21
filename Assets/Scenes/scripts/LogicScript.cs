@@ -27,6 +27,11 @@ public class LogicScript : MonoBehaviour
         Debug.Log("CLICK");
     }
 
+    public void PlayLevel2()
+    {
+        SceneManager.LoadSceneAsync(1);
+    }
+
     public void gameOver()
     {
         gameOverScreen.SetActive(true);
