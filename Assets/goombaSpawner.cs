@@ -29,6 +29,10 @@ public class goombaSpawner : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (logic.speerOmhoog) {
+            Destroy(gameObject);
+        }
+
     }
     
 

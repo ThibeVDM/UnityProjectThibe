@@ -56611,7 +56611,8 @@ MonoBehaviour:
   respawnPoint1: {fileID: 431789284}
   respawnPoint2: {fileID: 298711358}
   respawnPoint3: {fileID: 525876411}
-  lifes: 3
+  portalExit: {fileID: 0}
+  lifes: 10
   scoreText: {fileID: 1762920574}
   lifesText: {fileID: 581355568}
   rb: {fileID: 1115716795}

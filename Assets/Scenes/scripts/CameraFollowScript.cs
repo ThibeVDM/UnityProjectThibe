@@ -21,8 +21,15 @@ public class CameraFollowScript : MonoBehaviour
         {
             yOffset = 1;
         }
-        
-            Vector3 newPos = new Vector3(target.position.x, target.position.y + yOffset, -10f);
+        if (logic.PrinsesUitzicht) {
+            yOffset = 3;
+        }
+        if (!logic.PrinsesUitzicht)
+        {
+            yOffset = 1;
+        }
+
+        Vector3 newPos = new Vector3(target.position.x, target.position.y + yOffset, -10f);
             transform.position = Vector3.Slerp(transform.position, newPos, FollowSpeed * Time.deltaTime);
         
 

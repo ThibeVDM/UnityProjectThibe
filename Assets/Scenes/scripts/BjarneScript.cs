@@ -17,7 +17,7 @@ public class BjarneScript : MonoBehaviour
     public GameObject respawnPoint3;
     public GameObject portalExit;
     private float respawnPointNumber = 0;
-    public float lifes = 3;
+    public float lifes = 10;
     private float score = 0;
     public Text scoreText;
     public Text lifesText;
@@ -147,6 +147,26 @@ public class BjarneScript : MonoBehaviour
             
             
         }
+        if (other.gameObject.CompareTag("PrinsesUitzicht"))
+        {
+            
+            Destroy(other.gameObject);
+            
+            
+            logic.PrinsesUitzicht = true;
+
+
+        }
+        if (other.gameObject.CompareTag("trampoline"))
+        {
+
+            
+
+
+            logic.PrinsesUitzicht = false;
+
+
+        }
         if (other.gameObject.CompareTag("apple"))
         {
             death();
@@ -177,6 +197,10 @@ public class BjarneScript : MonoBehaviour
         {
             transform.position = portalExit.transform.position;
         }
+        if (other.gameObject.CompareTag("RedButton"))
+        {
+            logic.speerOmhoog = true;
+        }
 
 
 
@@ -188,6 +212,7 @@ public class BjarneScript : MonoBehaviour
     {
         score = score + 1;
         scoreText.text = score.ToString();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

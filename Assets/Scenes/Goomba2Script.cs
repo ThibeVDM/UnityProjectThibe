@@ -16,7 +16,7 @@ public class goomba2Script : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
-        if (transform.position.y < 0.95)
+        if (transform.position.y < 1.53)
         {
             Destroy(gameObject);
         }

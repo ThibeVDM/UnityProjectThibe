@@ -25,6 +25,11 @@ TagManager:
   - EndGround
   - LavaWalker
   - EnterPortal
+  - PrinsesUitzicht
+  - speer
+  - RedButton
+  - QueenGoomba
+  - trampoline
   layers:
   - Default
   - TransparentFX

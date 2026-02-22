@@ -13,7 +13,7 @@ public class HighScore : MonoBehaviour
     {
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         highScoreText.text = "High Score: " + highScore;
-        scoreText.text = "Score: 0";
+        scoreText.text = "0";
     }
 
     public void AddScore(int amount)

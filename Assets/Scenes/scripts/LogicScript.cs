@@ -12,12 +12,19 @@ public class LogicScript : MonoBehaviour
     public GameObject lavaWalker;
     public GameObject goombaInstruction;
     public GameObject superjumpText;
+    public GameObject deadEyes;
+    public GameObject trampolinePic;
+    public GameObject trampolineBounce;
+    public GameObject pijlen;
+    public GameObject textPowerUpWandelen;
     public bool witchIsAlive = true;
     public bool portalIsalive = true;
     public bool doubleJumpTaken = false;
     public bool bjarneIsAlive = true;
     public bool flameIsAlive = true;
     public bool lowGravity = false;
+    public bool PrinsesUitzicht = false;
+    public bool speerOmhoog = false;
 
 
     public void restartGame()
@@ -42,6 +49,15 @@ public class LogicScript : MonoBehaviour
         victoryScreen.SetActive(true);
 
     }
+    public void trampolineVisible()
+    {
+        trampolineBounce.SetActive(true);
+        trampolinePic.SetActive(true);
+    }
+    public void deadEyesOn() {
+        deadEyes.SetActive(true);
+    }
+
     public void witchDead()
     {
         goombaInstruction.SetActive(true);
@@ -70,6 +86,8 @@ public class LogicScript : MonoBehaviour
     public void powerUp3()
     {
         lavaWalker.SetActive(true);
+        textPowerUpWandelen.SetActive(true);
+        pijlen.SetActive(true);
     }
    
     
