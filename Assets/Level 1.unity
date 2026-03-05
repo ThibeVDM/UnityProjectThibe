@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -293.35785, y: 90}
+  m_AnchoredPosition: {x: -293.35785, y: 78}
   m_SizeDelta: {x: 173.6662, y: 92.3604}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6760081
@@ -2195,7 +2195,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 4e9f68f24b9a6b94cadbf747280a05b4, type: 2}
+  m_Material: {fileID: 6200000, guid: 2e998ba3abb18d3408f31e7f5b1f9e76, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3752,11 +3752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5795456262019511335, guid: 6019e8e9782388c4f860a9b1fbc78559, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2
+      value: -7.4
       objectReference: {fileID: 0}
     - target: {fileID: 5795456262019511335, guid: 6019e8e9782388c4f860a9b1fbc78559, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5795456262019511335, guid: 6019e8e9782388c4f860a9b1fbc78559, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4026,7 +4026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 610, y: 35}
+  m_AnchoredPosition: {x: 611, y: 8}
   m_SizeDelta: {x: 564.3819, y: 333.5604}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &581355568
@@ -4062,7 +4062,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 10
 --- !u!222 &581355569
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -56616,6 +56616,11 @@ MonoBehaviour:
   scoreText: {fileID: 1762920574}
   lifesText: {fileID: 581355568}
   rb: {fileID: 1115716795}
+  BossLifes: 3
+  bar1: {fileID: 0}
+  bar2: {fileID: 0}
+  bar3: {fileID: 0}
+  vlam: {fileID: 0}
 --- !u!4 &1115716788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5795456262019511335, guid: 6019e8e9782388c4f860a9b1fbc78559, type: 3}
@@ -58052,7 +58057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 292, y: 168}
+  m_AnchoredPosition: {x: 293, y: 138}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1507003314
@@ -109339,12 +109344,21 @@ MonoBehaviour:
   lavaWalker: {fileID: 1085546127}
   goombaInstruction: {fileID: 549678124}
   superjumpText: {fileID: 1985464024}
+  deadEyes: {fileID: 0}
+  trampolinePic: {fileID: 0}
+  trampolineBounce: {fileID: 0}
+  pijlen: {fileID: 0}
+  textPowerUpWandelen: {fileID: 0}
+  blokkade: {fileID: 0}
   witchIsAlive: 1
   portalIsalive: 1
   doubleJumpTaken: 0
   bjarneIsAlive: 1
   flameIsAlive: 1
   lowGravity: 0
+  PrinsesUitzicht: 0
+  speerOmhoog: 0
+  BossDefeated: 0
 --- !u!1 &1611614522
 GameObject:
   m_ObjectHideFlags: 0
@@ -110646,7 +110660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -293.35785, y: 150.59998}
+  m_AnchoredPosition: {x: -292, y: 133}
   m_SizeDelta: {x: 173.6662, y: 92.3604}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1762920574
@@ -110855,7 +110869,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 4e9f68f24b9a6b94cadbf747280a05b4, type: 2}
+  m_Material: {fileID: 6200000, guid: 2e998ba3abb18d3408f31e7f5b1f9e76, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -112073,7 +112087,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 4e9f68f24b9a6b94cadbf747280a05b4, type: 2}
+  m_Material: {fileID: 6200000, guid: 2e998ba3abb18d3408f31e7f5b1f9e76, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

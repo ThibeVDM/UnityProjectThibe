@@ -30,6 +30,11 @@ TagManager:
   - RedButton
   - QueenGoomba
   - trampoline
+  - prinsesGezien
+  - 8jump
+  - 5jump
+  - Boss
+  - BOSSfightGravity
   layers:
   - Default
   - TransparentFX

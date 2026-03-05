@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraFollowScript : MonoBehaviour
 {
     public float FollowSpeed = 2f;
-    public float yOffset = 1f;
+    public float yOffset;
     public Transform target;
     public LogicScript logic;
     void Start()
@@ -17,17 +17,16 @@ public class CameraFollowScript : MonoBehaviour
         {
             yOffset = -3;
         }
-        if (!logic.lowGravity)
+        if (logic.PrinsesUitzicht)
         {
-            yOffset = 1;
-        }
-        if (logic.PrinsesUitzicht) {
             yOffset = 3;
         }
-        if (!logic.PrinsesUitzicht)
+        if (logic.BossDefeated)
         {
-            yOffset = 1;
+            yOffset = 3;
         }
+
+
 
         Vector3 newPos = new Vector3(target.position.x, target.position.y + yOffset, -10f);
             transform.position = Vector3.Slerp(transform.position, newPos, FollowSpeed * Time.deltaTime);

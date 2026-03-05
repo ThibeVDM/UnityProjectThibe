@@ -23,7 +23,13 @@ public class BjarneScript : MonoBehaviour
     public Text lifesText;
     public Rigidbody2D rb;
     private int i = 0;
-   
+    public float BossLifes = 3;
+    public GameObject bar1;
+    public GameObject bar2;
+    public GameObject bar3;
+    public GameObject vlam;
+
+
 
 
 
@@ -85,7 +91,7 @@ public class BjarneScript : MonoBehaviour
         }
         lifes = lifes - 1;
         lifesText.text = lifes.ToString();
-        movementScript.jumpingPower = 5;
+        movementScript.jumpingPower = 7;
     }
 
     public void gameOver()
@@ -123,6 +129,10 @@ public class BjarneScript : MonoBehaviour
         {
             death();
         }
+        if (other.gameObject.CompareTag("Boss"))
+        {
+            death();
+        }
         if (other.gameObject.CompareTag("Checkpoint1"))
         {
             respawnPointNumber = respawnPointNumber + 1;
@@ -147,13 +157,53 @@ public class BjarneScript : MonoBehaviour
             
             
         }
-        if (other.gameObject.CompareTag("PrinsesUitzicht"))
+        if (other.gameObject.CompareTag("8jump"))
         {
             
             Destroy(other.gameObject);
+
+            movementScript.jumpingPower = 8;
+
+
+
+        }
+        if (other.gameObject.CompareTag("5jump"))
+        {
+
+            Destroy(other.gameObject);
+
+            movementScript.jumpingPower = 5;
+
+
+
+        }
+        if (other.gameObject.CompareTag("BOSSfightGravity"))
+        {
+
             
-            
+
+            movementScript.jumpingPower = 14;
+
+
+
+        }
+        if (other.gameObject.CompareTag("PrinsesUitzicht"))
+        {
+
+            Destroy(other.gameObject);
+
+
             logic.PrinsesUitzicht = true;
+
+
+        }
+        if (other.gameObject.CompareTag("prinsesGezien"))
+        {
+            logic.prinsesGezien();
+            Destroy(other.gameObject);
+
+
+            
 
 
         }
@@ -222,6 +272,31 @@ public class BjarneScript : MonoBehaviour
             Destroy(other.gameObject);
             goombaCount = goombaCount + 1;
             addScore();
+        }
+        if (other.gameObject.CompareTag("Boss"))
+        {
+            if(BossLifes == 0)
+            {
+                Destroy(other.gameObject);
+                bar3.SetActive(true);
+                vlam.SetActive(false);
+                logic.BossDefeated = true;
+            }
+            else
+            {
+                BossLifes = BossLifes - 1;
+                transform.position = respawnPoint1.transform.position;
+                if(BossLifes == 1)
+                {
+                    bar2.SetActive(true);
+                }
+                if (BossLifes == 2)
+                {
+                    bar1.SetActive(true);
+                }
+
+            }
+            
         }
         if (other.gameObject.CompareTag("apple"))
         {

@@ -17,6 +17,7 @@ public class LogicScript : MonoBehaviour
     public GameObject trampolineBounce;
     public GameObject pijlen;
     public GameObject textPowerUpWandelen;
+    public GameObject blokkade;
     public bool witchIsAlive = true;
     public bool portalIsalive = true;
     public bool doubleJumpTaken = false;
@@ -25,6 +26,7 @@ public class LogicScript : MonoBehaviour
     public bool lowGravity = false;
     public bool PrinsesUitzicht = false;
     public bool speerOmhoog = false;
+    public bool BossDefeated = false;
 
 
     public void restartGame()
@@ -37,6 +39,11 @@ public class LogicScript : MonoBehaviour
     public void PlayLevel2()
     {
         SceneManager.LoadSceneAsync(1);
+    }
+
+    public void PlayBoss()
+    {
+        SceneManager.LoadSceneAsync(2);
     }
 
     public void gameOver()
@@ -57,6 +64,11 @@ public class LogicScript : MonoBehaviour
     public void deadEyesOn() {
         deadEyes.SetActive(true);
     }
+    public void prinsesGezien()
+    {
+        blokkade.SetActive(true);
+    }
+
 
     public void witchDead()
     {
