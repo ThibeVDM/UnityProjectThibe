@@ -35,6 +35,8 @@ TagManager:
   - 5jump
   - Boss
   - BOSSfightGravity
+  - Level2
+  - broodje
   layers:
   - Default
   - TransparentFX

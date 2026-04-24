@@ -20,6 +20,7 @@ public class BjarneScript : MonoBehaviour
     public float lifes = 10;
     private float score = 0;
     public Text scoreText;
+    public Text kingText;
     public Text lifesText;
     public Rigidbody2D rb;
     private int i = 0;
@@ -91,7 +92,16 @@ public class BjarneScript : MonoBehaviour
         }
         lifes = lifes - 1;
         lifesText.text = lifes.ToString();
-        movementScript.jumpingPower = 7;
+        if (logic.Level2)
+        {
+            movementScript.jumpingPower = 7;
+        }
+        else
+        {
+            movementScript.jumpingPower = 5;
+        }
+       
+
     }
 
     public void gameOver()
@@ -139,6 +149,12 @@ public class BjarneScript : MonoBehaviour
             Destroy(other.gameObject);
             addScore();
             logic.witchDead();
+        }
+        if (other.gameObject.CompareTag("Level2"))
+        {
+            logic.Level2 = true;
+            Destroy(other.gameObject);
+            
         }
         if (other.gameObject.CompareTag("Checkpoint2"))
         {
@@ -217,6 +233,16 @@ public class BjarneScript : MonoBehaviour
 
 
         }
+        if (other.gameObject.CompareTag("broodje"))
+        {
+
+
+            logic.victory();
+
+            
+
+
+        }
         if (other.gameObject.CompareTag("apple"))
         {
             death();
@@ -224,12 +250,15 @@ public class BjarneScript : MonoBehaviour
         if (other.gameObject.CompareTag("doubleJump"))
         {
             Destroy(other.gameObject);
-            movementScript.jumpingPower = 10;
+            movementScript.jumpingPower = 12;
             logic.superjumpActive();
         }
         if (other.gameObject.CompareTag("End"))
         {
             logic.victory();
+            logic.Level2 = true;
+            movementScript.jumpingPower = 0;
+            movementScript.speed = 0;
 
         }
 
@@ -275,18 +304,21 @@ public class BjarneScript : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Boss"))
         {
-            if(BossLifes == 0)
+            BossLifes = BossLifes - 1;
+
+            if (BossLifes <= 0)
             {
                 Destroy(other.gameObject);
                 bar3.SetActive(true);
                 vlam.SetActive(false);
                 logic.BossDefeated = true;
+                kingText.enabled = false;
             }
             else
             {
-                BossLifes = BossLifes - 1;
                 transform.position = respawnPoint1.transform.position;
-                if(BossLifes == 1)
+
+                if (BossLifes == 1)
                 {
                     bar2.SetActive(true);
                 }
@@ -294,9 +326,7 @@ public class BjarneScript : MonoBehaviour
                 {
                     bar1.SetActive(true);
                 }
-
             }
-            
         }
         if (other.gameObject.CompareTag("apple"))
         {

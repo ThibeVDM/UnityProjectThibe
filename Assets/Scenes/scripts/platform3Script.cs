@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class platform3Script : MonoBehaviour
 {
-    public float moveSpeed = 2;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -10,12 +10,15 @@ public class platform3Script : MonoBehaviour
     }
 
     // Update is called once per frame
+   
+
+    float minY = 3.46f;
+    float maxY = 9.6f;
+    float speed = 2f;
+
     void Update()
     {
-        transform.position = transform.position + (Vector3.up * moveSpeed) * Time.deltaTime;
-        if (transform.position.y > 9.6 || transform.position.y < 3.46)
-        {
-            moveSpeed = 0 - moveSpeed;
-        }
+        float y = Mathf.PingPong(Time.time * speed, maxY - minY) + minY;
+        transform.position = new Vector3(transform.position.x, y, transform.position.z);
     }
 }

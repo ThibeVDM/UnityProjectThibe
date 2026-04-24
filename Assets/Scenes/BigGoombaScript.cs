@@ -3,7 +3,7 @@ using UnityEngine;
 public class BigGoombaScript : MonoBehaviour
 {
     public GameObject player;
-    public float speed = 2;
+    
     private float distance;
     private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -12,16 +12,14 @@ public class BigGoombaScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    float minX = 47f;
+    float maxX = 60.5f;
+    float speed = 3f;
+
     void Update()
     {
-        
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
-        if (transform.position.x < 47 || transform.position.x > 60.5)
-        {
-            speed = 0 - speed;
-        }
-
+        float x = Mathf.PingPong(Time.time * speed, maxX - minX) + minX;
+        transform.position = new Vector3(x, transform.position.y, transform.position.z);
     }
 
     private void OnCollisionEnter2D(Collision2D other)

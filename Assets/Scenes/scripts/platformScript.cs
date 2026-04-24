@@ -10,12 +10,13 @@ public class platformScript : MonoBehaviour
     }
 
     // Update is called once per frame
+    float minY = 1.7f;
+    float maxY = 9.63f;
+    float speed = 2f;
+
     void Update()
     {
-        transform.position = transform.position + (Vector3.up * moveSpeed) * Time.deltaTime;
-        if (transform.position.y > 9.63 || transform.position.y < 1.7)
-        {
-            moveSpeed = 0 - moveSpeed;
-        }
+        float y = Mathf.PingPong(Time.time * speed, maxY - minY) + minY;
+        transform.position = new Vector3(transform.position.x, y, transform.position.z);
     }
 }

@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class LogicScript : MonoBehaviour
 {
     public GameObject gameOverScreen;
+    public MovementScript movementScript;
     public GameObject victoryScreen;
     public GameObject lavaWalker;
     public GameObject goombaInstruction;
@@ -27,12 +28,21 @@ public class LogicScript : MonoBehaviour
     public bool PrinsesUitzicht = false;
     public bool speerOmhoog = false;
     public bool BossDefeated = false;
+    public bool Level2 = false;
+    public bool LevelBoss = false;
 
 
     public void restartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("CLICK");
+    }
+
+    public void restartFullGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
         Debug.Log("CLICK");
     }
 
@@ -52,6 +62,13 @@ public class LogicScript : MonoBehaviour
 
     }
     public void victory()
+    {
+        victoryScreen.SetActive(true);
+        
+
+
+    }
+    public void gameVictory()
     {
         victoryScreen.SetActive(true);
 

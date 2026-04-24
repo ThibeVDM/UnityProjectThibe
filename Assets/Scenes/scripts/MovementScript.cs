@@ -47,6 +47,10 @@ public class MovementScript : MonoBehaviour
             speed = 0;
             jumpingPower = 0;
         }
+        if (logic.Level2)
+        {
+            jumpingPower = 7;
+        }
         
     }
     private void FixedUpdate()
@@ -73,12 +77,7 @@ public class MovementScript : MonoBehaviour
             grounded = false;
         }
     }
-    private void OnDrawGizmosSelected()
-    {
-        if (groundCheck == null) return;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
-    }
+ 
 
     private void Flip()
     {
